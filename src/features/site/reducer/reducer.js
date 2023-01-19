@@ -4,7 +4,10 @@ import * as ac from "./action.creator";
 const initialState = { sites: [] };
 
 export const siteReducer = createReducer(initialState, (builder) => {
-    builder.addCase(ac.loadActionSite, (_state, action) => action.payload);
+    builder.addCase(ac.loadActionSite, (state, action) => ({
+        ...state,
+        sites: action.payload,
+    }));
     builder.addCase(ac.addActionSite, (state, action) => ({
         ...state,
         sites: [...state.sites, action.payload],
