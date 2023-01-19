@@ -76,4 +76,14 @@ describe("Given useSite", () => {
             expect(SiteRepository.prototype.get).toHaveBeenCalled();
         });
     });
+    describe("When it has been run handleDelete and it has called handleDelete incorrectly", () => {
+        test("Then should deleted", async () => {
+            SiteRepository.prototype.delete = jest
+                .fn()
+                .mockResolvedValue(mockSites.sites[0]);
+            result.current.handleDelete(mockSites.sites[0].id);
+
+            expect(SiteRepository.prototype.delete).toHaveBeenCalled();
+        });
+    });
 });
