@@ -26,9 +26,12 @@ export class SiteRepository {
         return fetch(`${this.urlBase}/site`, {
             method: "POST",
             body: JSON.stringify(site),
+            headers: {
+                "content-Type": "application/json",
+            },
         })
             .then((response) => {
-                response.json();
+                return response.json();
             })
             .catch((error) => {
                 return `${error}`;
