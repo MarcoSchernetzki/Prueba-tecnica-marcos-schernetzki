@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import CreatePage from "../../../features/pages/createPage/createPage";
+import { CreatePage } from "../../../features/pages/createPage/createPage";
 import { HomePage } from "../../../features/pages/homePage/homePage";
 
 export function AppRoutes() {
