@@ -39,7 +39,7 @@ export const useSite = () => {
             .get(site._id)
             .then(() => {
                 dispatcher(ac.selectActionCreator(site));
-                navigate("/details");
+                navigate("/detail");
             })
             .catch((error) => {
                 return Swal.fire("Error", error.message, "error");
