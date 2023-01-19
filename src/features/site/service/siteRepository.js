@@ -22,4 +22,14 @@ export class SiteRepository {
                 return `${error}`;
             });
     }
+    post(site) {
+        return fetch(`${this.urlBase}/`, {
+            method: "POST",
+            body: JSON.stringify(site),
+        })
+            .then((response) => response.json())
+            .catch((error) => {
+                return `${error}`;
+            });
+    }
 }
