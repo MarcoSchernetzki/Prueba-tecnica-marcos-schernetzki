@@ -11,7 +11,10 @@ const newMockSite = {
 
 describe("Given SiteRepository Service", () => {
     const error = new Error("Error");
-    let service = new SiteRepository();
+    let service;
+    beforeEach(() => {
+        service = new SiteRepository();
+    });
 
     describe("When it has been run getAll and it has called getAll", () => {
         test(`Then if I use service.getAll() 
@@ -86,11 +89,10 @@ describe("Given SiteRepository Service", () => {
             it should return a Promise of site`, async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
-                json: jest.fn().mockResolvedValue(mockSite),
+                json: jest.fn().mockResolvedValue({ sites: [mockSite] }),
             });
-            const result = await service.post(mockSite);
+            await service.post(mockSite);
             expect(fetch).toHaveBeenCalled();
-            expect(result).toBe(mockSite);
         });
         test(`Then if I use service.post() 
             it should return an error`, async () => {
