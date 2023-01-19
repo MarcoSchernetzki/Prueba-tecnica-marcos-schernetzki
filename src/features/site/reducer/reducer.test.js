@@ -13,7 +13,7 @@ describe("Given the function siteReducer", () => {
                 type: actionSite.load,
                 payload: [siteMock],
             };
-            const state = [];
+            const state = { sites: [] };
             const result = siteReducer(state, action);
             expect(result).toEqual(action.payload);
         });
@@ -24,7 +24,7 @@ describe("Given the function siteReducer", () => {
                 type: actionSite.add,
                 payload: siteMock,
             };
-            const state = [];
+            const state = { sites: [] };
             const result = siteReducer(state, action);
             expect(result).toContainEqual(action.payload);
         });
@@ -35,7 +35,7 @@ describe("Given the function siteReducer", () => {
                 type: actionSite.update,
                 payload: { ...siteMock, name: "Update name" },
             };
-            const state = [siteMock];
+            const state = { sites: [siteMock] };
             const result = siteReducer(state, action);
             expect(result).toContainEqual(action.payload);
         });
@@ -46,7 +46,7 @@ describe("Given the function siteReducer", () => {
                 type: actionSite.update,
                 payload: { ...siteMock, id: 1, name: "Update name" },
             };
-            const state = [siteMock];
+            const state = { sites: [siteMock] };
             const result = siteReducer(state, action);
             expect(result).toEqual(state);
         });
@@ -57,7 +57,7 @@ describe("Given the function siteReducer", () => {
                 type: actionSite.delete,
                 payload: "2",
             };
-            const state = [siteMock];
+            const state = { sites: [siteMock] };
             const result = siteReducer(state, action);
             expect(result).toEqual([]);
         });
@@ -69,7 +69,7 @@ describe("Given the function siteReducer", () => {
                 type: actionSite.delete,
                 payload: { ...siteMock, id: 1 },
             };
-            const state = [siteMock];
+            const state = { sites: [siteMock] };
             const result = siteReducer(state, action);
             expect(result).toEqual(state);
         });
@@ -81,7 +81,7 @@ describe("Given the function siteReducer", () => {
                 type: "",
                 payload: null,
             };
-            const state = [siteMock];
+            const state = { sites: [siteMock] };
             const result = siteReducer(state, action);
             expect(result).toEqual(state);
         });
