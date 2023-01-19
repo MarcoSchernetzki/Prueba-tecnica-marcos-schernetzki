@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import * as ac from "./action.creator";
 
-const initialState = { sites: [] };
+const initialState = { sites: [], selectedSite: null };
 
 export const siteReducer = createReducer(initialState, (builder) => {
     builder.addCase(ac.loadActionSite, (state, action) => ({
@@ -17,6 +17,10 @@ export const siteReducer = createReducer(initialState, (builder) => {
         sites: state.sites.map((item) =>
             item.id === action.payload.id ? action.payload : item
         ),
+    }));
+    builder.addCase(ac.selectActionCreator, (state, action) => ({
+        ...state,
+        selectedSite: action.payload,
     }));
     builder.addCase(ac.deleteActionSite, (state, action) => ({
         ...state,

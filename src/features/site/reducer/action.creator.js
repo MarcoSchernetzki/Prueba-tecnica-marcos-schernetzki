@@ -5,3 +5,4 @@ export const loadActionSite = createAction(actionSite.load);
 export const addActionSite = createAction(actionSite.add);
 export const updateActionSite = createAction(actionSite.update);
 export const deleteActionSite = createAction(actionSite.delete);
+export const selectActionCreator = createAction(actionSite.select);
