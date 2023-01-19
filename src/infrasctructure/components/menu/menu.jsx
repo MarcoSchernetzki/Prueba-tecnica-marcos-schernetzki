@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Styles from "./menu.module.css";
 
 export function Menu() {
-    const menuOptions = [{ id: "1", path: "Añadir", label: "Añadir" }];
+    const menuOptions = [{ id: "1", path: "create", label: "Añadir" }];
     return (
         <nav className={Styles.nav}>
             <ul className={Styles.ul}>
@@ -17,4 +17,3 @@ export function Menu() {
         </nav>
     );
 }
-

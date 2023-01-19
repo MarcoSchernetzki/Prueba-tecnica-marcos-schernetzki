@@ -9,6 +9,7 @@ export const siteMock = {
 export const preloadedState = {
     sites: {
         sites: [siteMock],
+        selectedSite: siteMock,
     },
 };
 
@@ -18,4 +19,3 @@ export const mockStore = configureStore({
     },
     preloadedState,
 });
-
