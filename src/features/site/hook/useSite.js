@@ -45,11 +45,23 @@ export const useSite = () => {
                 return Swal.fire("Error", error.message, "error");
             });
     };
+    const handleDelete = (id) => {
+        apiSite
+            .delete(id)
+            .then((dataId) => {
+                dispatcher(ac.deleteActionSite(dataId));
+                navigate("/home");
+            })
+            .catch((error) => {
+                return Swal.fire("Error", error.message, "error");
+            });
+    };
 
     return {
         sites,
         handleLoad,
         handleAdd,
         handleSelect,
+        handleDelete,
     };
 };
