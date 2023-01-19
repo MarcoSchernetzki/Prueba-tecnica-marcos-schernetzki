@@ -1,15 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
 import "./index.css";
 import { App } from "./infrasctructure/components/app/App";
+import { appStore } from "./infrasctructure/store/store";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
         <Router>
-            <App />
+            <Provider store={appStore}>
+                <App />
+            </Provider>
         </Router>
     </React.StrictMode>
 );
