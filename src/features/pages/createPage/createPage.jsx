@@ -1,6 +1,6 @@
 import { CreateForm } from "./createForm/createForm";
 
-function CreatePage() {
+export function CreatePage() {
     return (
         <>
             <main>
@@ -12,5 +12,3 @@ function CreatePage() {
         </>
     );
 }
-export default CreatePage;
-
