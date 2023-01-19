@@ -53,6 +53,20 @@ describe("Given the function siteReducer", () => {
             expect(result).toEqual(state);
         });
     });
+    describe("When the action is select", () => {
+        test("Then the returned state should be the original state", () => {
+            const action = {
+                type: actionSite.select,
+                payload: siteMock[0],
+            };
+            const state = { sites: siteMock, selectedSite: null };
+            const result = siteReducer(state, action);
+            expect(result).toEqual({
+                sites: siteMock,
+                selectedSite: siteMock[0],
+            });
+        });
+    });
     describe("When the action is delete", () => {
         test("Then the returned state should not include the action payload", () => {
             const action = {

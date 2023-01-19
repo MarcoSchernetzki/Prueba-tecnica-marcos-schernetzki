@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSite } from "../../site/hook/useSite";
 
 export function HomePage() {
-    const { sites, handleLoad } = useSite();
+    const { sites, handleLoad, handleSelect } = useSite();
     useEffect(() => {
         handleLoad();
     }, [handleLoad]);
@@ -13,9 +13,15 @@ export function HomePage() {
                     <ul>
                         {sites.sites?.map((item) => {
                             return (
-                                <li key={item.id}>
+                                <li key={item._id}>
                                     <p> Nombre: {item.name}</p>
-                                    <button onClick={() => {}}>Detalles</button>
+                                    <button
+                                        onClick={() => {
+                                            handleSelect(item);
+                                        }}
+                                    >
+                                        Detalles
+                                    </button>
                                 </li>
                             );
                         })}

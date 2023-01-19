@@ -4,6 +4,11 @@ import { appStore } from "../../../infrasctructure/store/store";
 import { useSite } from "./useSite";
 import { SiteRepository } from "../service/siteRepository";
 
+jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useNavigate: jest.fn(),
+}));
+
 const mockSites = {
     sites: [
         {
@@ -30,39 +35,55 @@ describe("Given useSite", () => {
 
             expect(SiteRepository.prototype.post).toHaveBeenCalled();
         });
-        test("Then should return an error", async () => {
-            const error = new Error("");
-
+        test("When it has been run handleAdd and has failed", async () => {
+            SiteRepository.prototype.post = jest
+                .fn()
+                .mockRejectedValue(mockSites.sites);
             result.current.handleAdd(mockSites.sites[1]);
-
-            expect(error).toBeInstanceOf(Error);
+            expect(SiteRepository.prototype.post).toHaveBeenCalled();
         });
     });
     describe("When it has been run handleLoad and it has called handleLoad", () => {
-        beforeEach(() => {
+        test("Then should return a promise of the sites", async () => {
             SiteRepository.prototype.getAll = jest
                 .fn()
                 .mockResolvedValue(mockSites.sites);
-        });
-        test("Then should return a promise of site created", async () => {
-            result.current.handleLoad();
-        });
-        test("Then should return a promise of the site selected", async () => {
             result.current.handleLoad();
 
             expect(SiteRepository.prototype.getAll).toHaveBeenCalled();
         });
-    });
-    describe("When it has been run handleLoad and has failed", () => {
-        beforeEach(() => {
+        test("When it has been run handleLoad and has failed", async () => {
             SiteRepository.prototype.getAll = jest
                 .fn()
                 .mockRejectedValue(mockSites.sites);
-        });
-        test("Then should return a promise of the site selected", async () => {
             result.current.handleLoad();
-
             expect(SiteRepository.prototype.getAll).toHaveBeenCalled();
+        });
+    });
+    describe("When it has been run handleSelect and it has called handleSelect", () => {
+        test("Then should return a promise of the site", async () => {
+            SiteRepository.prototype.get = jest
+                .fn()
+                .mockResolvedValue(mockSites.sites[0]);
+            result.current.handleSelect(mockSites.sites[0].id);
+            expect(SiteRepository.prototype.get).toHaveBeenCalled();
+        });
+        test("When it has been run handleSelect and has failed", async () => {
+            SiteRepository.prototype.get = jest
+                .fn()
+                .mockRejectedValue(mockSites.sites[0]);
+            result.current.handleSelect("4");
+            expect(SiteRepository.prototype.get).toHaveBeenCalled();
+        });
+    });
+    describe("When it has been run handleDelete and it has called handleDelete incorrectly", () => {
+        test("Then should deleted", async () => {
+            SiteRepository.prototype.delete = jest
+                .fn()
+                .mockResolvedValue(mockSites.sites[0]);
+            result.current.handleDelete(mockSites.sites[0].id);
+
+            expect(SiteRepository.prototype.delete).toHaveBeenCalled();
         });
     });
 });
