@@ -32,4 +32,15 @@ export class SiteRepository {
                 return `${error}`;
             });
     }
+    delete(id) {
+        return fetch(`${this.urlBase}/${id}`, {
+            method: "DELETE",
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .catch((error) => {
+                return `${error}`;
+            });
+    }
 }
