@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { App } from "./App";
 import { appStore } from "./infrasctructure/store/store";
 
-test("renders proximamente", () => {
+test("renders A3player", () => {
     render(
         <Router>
             <Provider store={appStore}>
@@ -12,6 +12,6 @@ test("renders proximamente", () => {
             </Provider>
         </Router>
     );
-    const linkElement = screen.getByText(/proximamente/i);
+    const linkElement = screen.getByText(/A3player/i);
     expect(linkElement).toBeInTheDocument();
 });
