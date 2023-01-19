@@ -11,7 +11,10 @@ const newMockSite = {
 
 describe("Given SiteRepository Service", () => {
     const error = new Error("Error");
-    let service = new SiteRepository();
+    let service;
+    beforeEach(() => {
+        service = new SiteRepository();
+    });
 
     describe("When it has been run getAll and it has called getAll", () => {
         test(`Then if I use service.getAll() 
