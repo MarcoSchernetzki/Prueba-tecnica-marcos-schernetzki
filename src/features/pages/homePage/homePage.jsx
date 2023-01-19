@@ -8,7 +8,7 @@ export function HomePage() {
     }, [handleLoad]);
     return (
         <>
-            {sites.sites ? (
+            {sites.sites.length > 0 ? (
                 <div>
                     <ul>
                         {sites.sites?.map((item) => {
