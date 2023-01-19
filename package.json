@@ -29,7 +29,7 @@
     "jest": {
         "coveragePathIgnorePatterns": [
             "<rootDir>/src/reportWebVitals.js",
-            "<rootDir>/src/index.js"
+            "<rootDir>/src/index.jsx"
         ]
     },
     "browserslist": {

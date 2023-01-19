@@ -5,7 +5,6 @@ export function AppRoutes() {
         <Routes>
             <Route path="Añadir" element={<p>Proximamente</p>}></Route>
             <Route path="" element={<p>Proximamente</p>}></Route>
-
             <Route path="*" element={<p>Proximamente</p>}></Route>
         </Routes>
     );
