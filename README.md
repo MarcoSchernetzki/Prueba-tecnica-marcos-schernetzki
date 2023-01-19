@@ -6,17 +6,17 @@ CREAR UNA SENCILLA APLICACIÓN PARA ALIMENTAR LA BASE DE DATOS DE Sitios
 
 Los minimos requeridos son:
 
-- Formulario crear
+-   Formulario crear
 
-- Formulario editar
+-   Formulario editar
 
-- Listado
+-   Listado
 
-  - Capacidad de acceder al detalle y eliminar
+    -   Capacidad de acceder al detalle y eliminar
 
-- Si se ve necesario gestionar el estado
+-   Si se ve necesario gestionar el estado
 
-- Usar APIs actuales de react
+-   Usar APIs actuales de react
 
 ## SERVICIOS / ENDPOINTS
 
