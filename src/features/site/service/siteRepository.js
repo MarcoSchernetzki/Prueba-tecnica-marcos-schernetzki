@@ -15,4 +15,11 @@ export class SiteRepository {
                 return `${error}`;
             });
     }
+    get(id) {
+        return fetch(`${this.urlBase}/${id}`)
+            .then((response) => response.json())
+            .catch((error) => {
+                return `${error}`;
+            });
+    }
 }

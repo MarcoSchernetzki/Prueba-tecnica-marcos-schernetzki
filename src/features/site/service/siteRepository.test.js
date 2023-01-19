@@ -35,6 +35,29 @@ describe("Given SiteRepository Service", () => {
             expect(error).toBeInstanceOf(Error);
         });
     });
+    describe("When it has been run get and it has called get", () => {
+        test(`Then if I use service.get() 
+            it should return a Promise of site`, async () => {
+            global.fetch = jest.fn().mockResolvedValue({
+                ok: true,
+                json: jest.fn().mockResolvedValue(mockSite),
+            });
+            const result = await service.get(mockSite.id);
+            expect(fetch).toHaveBeenCalled();
+            expect(result).toBe(mockSite);
+        });
+        test(`Then if I use service.get() 
+            it should return an error`, async () => {
+            global.fetch = jest.fn().mockRejectedValue({
+                ok: false,
+                status: 404,
+                statusText: "Error",
+            });
+            await service.get(mockSite.id);
+            expect(fetch).toHaveBeenCalled();
+            expect(error).toBeInstanceOf(Error);
+        });
+    });
 
     describe("When we instantiate it", () => {
         test("Then if i use service.createError(), it should return an error", () => {
