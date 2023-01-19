@@ -2,42 +2,44 @@ import { actionSite } from "./action.types";
 import { siteReducer } from "./reducer";
 
 describe("Given the function siteReducer", () => {
-    const siteMock = {
-        name: "site name",
-        id: "2",
-    };
+    const siteMock = [
+        {
+            name: "site name",
+            id: "2",
+        },
+    ];
 
     describe("When the action is load", () => {
         test("Then the returned state should be the action payload", () => {
             const action = {
                 type: actionSite.load,
-                payload: [siteMock],
+                payload: siteMock,
             };
             const state = { sites: [] };
             const result = siteReducer(state, action);
-            expect(result).toEqual(action.payload);
+            expect(result).toEqual({ sites: action.payload });
         });
     });
     describe("When the action is add", () => {
         test("Then the returned state should include the action payload", () => {
             const action = {
                 type: actionSite.add,
-                payload: siteMock,
+                payload: siteMock[0],
             };
             const state = { sites: [] };
             const result = siteReducer(state, action);
-            expect(result).toContainEqual(action.payload);
+            expect(result).toEqual({ sites: [action.payload] });
         });
     });
     describe("When the action is update", () => {
         test("Then the returned state should include the action payload", () => {
             const action = {
                 type: actionSite.update,
-                payload: { ...siteMock, name: "Update name" },
+                payload: { ...siteMock[0], name: "Update name" },
             };
-            const state = { sites: [siteMock] };
+            const state = { sites: siteMock };
             const result = siteReducer(state, action);
-            expect(result).toContainEqual(action.payload);
+            expect(result).toEqual({ sites: [action.payload] });
         });
     });
     describe("When the action is update and the id is not valid", () => {
@@ -57,9 +59,9 @@ describe("Given the function siteReducer", () => {
                 type: actionSite.delete,
                 payload: "2",
             };
-            const state = { sites: [siteMock] };
+            const state = { sites: siteMock };
             const result = siteReducer(state, action);
-            expect(result).toEqual([]);
+            expect(result).toEqual({ sites: [] });
         });
     });
 
@@ -67,9 +69,9 @@ describe("Given the function siteReducer", () => {
         test("Then the returned state should should be the original state", () => {
             const action = {
                 type: actionSite.delete,
-                payload: { ...siteMock, id: 1 },
+                payload: "1",
             };
-            const state = { sites: [siteMock] };
+            const state = { sites: siteMock };
             const result = siteReducer(state, action);
             expect(result).toEqual(state);
         });
@@ -81,7 +83,7 @@ describe("Given the function siteReducer", () => {
                 type: "",
                 payload: null,
             };
-            const state = { sites: [siteMock] };
+            const state = { sites: siteMock };
             const result = siteReducer(state, action);
             expect(result).toEqual(state);
         });
