@@ -3,4 +3,5 @@ export const actionSite = {
     add: "Site@add",
     update: "Site@update",
     delete: "Site@delete",
+    select: "Site@select",
 };
