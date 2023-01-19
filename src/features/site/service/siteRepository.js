@@ -32,6 +32,16 @@ export class SiteRepository {
                 return `${error}`;
             });
     }
+    put(id, site) {
+        return fetch(`${this.urlBase}/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(site),
+        })
+            .then((response) => response.json())
+            .catch((error) => {
+                return `${error}`;
+            });
+    }
     delete(id) {
         return fetch(`${this.urlBase}/${id}`, {
             method: "DELETE",
