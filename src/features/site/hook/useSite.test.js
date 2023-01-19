@@ -53,4 +53,16 @@ describe("Given useSite", () => {
             expect(SiteRepository.prototype.getAll).toHaveBeenCalled();
         });
     });
+    describe("When it has been run handleLoad and has failed", () => {
+        beforeEach(() => {
+            SiteRepository.prototype.getAll = jest
+                .fn()
+                .mockRejectedValue(mockSites.sites);
+        });
+        test("Then should return a promise of the site selected", async () => {
+            result.current.handleLoad();
+
+            expect(SiteRepository.prototype.getAll).toHaveBeenCalled();
+        });
+    });
 });
