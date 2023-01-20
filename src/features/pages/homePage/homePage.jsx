@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSite } from "../../site/hook/useSite";
 
 export function HomePage() {
-    const { sites, handleLoad, handleSelect } = useSite();
+    const { sites, handleLoad, handleSelect, handleDelete } = useSite();
     useEffect(() => {
         handleLoad();
     }, [handleLoad]);
@@ -21,6 +21,13 @@ export function HomePage() {
                                         }}
                                     >
                                         Detalles
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            handleDelete(item._id);
+                                        }}
+                                    >
+                                        Eliminar
                                     </button>
                                 </li>
                             );
