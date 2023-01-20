@@ -38,7 +38,12 @@ export function HomePage() {
                     </ul>
                 </div>
             ) : (
-                <p>Loading</p>
+                <div placeholder="loading" className={Style.lds_ring}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             )}
         </>
     );
