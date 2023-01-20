@@ -22,7 +22,13 @@ export function DetailsPage() {
                     >
                         Volver
                     </button>
-                    <button>Editar</button>
+                    <button
+                        onClick={() => {
+                            navigate("/edit");
+                        }}
+                    >
+                        Editar
+                    </button>
                 </div>
             ) : (
                 <p>Loading...</p>

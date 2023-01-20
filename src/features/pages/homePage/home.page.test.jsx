@@ -30,6 +30,7 @@ describe("Given home.page component", () => {
             const element = screen.getByText(/Detalles/i);
             expect(element).toBeInTheDocument();
             userEvent.click(screen.getByText(/Detalles/i));
+            userEvent.click(screen.getByText(/Eliminar/i));
         });
     });
 });

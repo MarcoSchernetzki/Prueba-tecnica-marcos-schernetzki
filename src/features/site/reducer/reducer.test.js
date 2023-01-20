@@ -5,7 +5,7 @@ describe("Given the function siteReducer", () => {
     const siteMock = [
         {
             name: "site name",
-            id: "2",
+            _id: "2",
         },
     ];
 
@@ -48,7 +48,7 @@ describe("Given the function siteReducer", () => {
                 type: actionSite.update,
                 payload: { ...siteMock, id: 1, name: "Update name" },
             };
-            const state = { sites: [siteMock] };
+            const state = { sites: siteMock };
             const result = siteReducer(state, action);
             expect(result).toEqual(state);
         });
