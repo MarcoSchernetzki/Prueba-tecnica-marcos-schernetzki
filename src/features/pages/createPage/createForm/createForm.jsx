@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { useSite } from "../../../site/hook/useSite";
 import Style from "../create.module.css";
 
@@ -26,6 +27,8 @@ export function CreateForm() {
     const handleAddSubmit = (ev) => {
         ev.preventDefault();
         handleAdd(addFormState);
+        Swal.fire("Gracias!", "has creado un nuevo sitio", "success");
+        navigate("/home");
     };
 
     return (
@@ -44,6 +47,7 @@ export function CreateForm() {
                     <input
                         type="text"
                         name="description"
+                        required
                         placeholder="Ingrese una descripcion"
                         onInput={handleInput}
                     />
@@ -52,6 +56,7 @@ export function CreateForm() {
                     <input
                         type="url"
                         name="path"
+                        required
                         placeholder="Ingrese la direccion URL"
                         onInput={handleInput}
                     />
@@ -60,6 +65,7 @@ export function CreateForm() {
                     <input
                         type="url"
                         name="publicPath"
+                        required
                         placeholder="Ingrese la direccion URL publica"
                         onInput={handleInput}
                     />
