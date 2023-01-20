@@ -25,7 +25,7 @@ export function HomePage() {
                                         Detalles
                                     </button>
                                     <button
-                                        className={Style.car_button}
+                                        className={Style.card_button}
                                         onClick={() => {
                                             handleDelete(item._id);
                                         }}
