@@ -72,7 +72,7 @@ export function CreateForm() {
                     <button
                         className={Style.form_button}
                         onClick={() => {
-                            navigate("");
+                            navigate("/home");
                         }}
                     >
                         Cancelar
