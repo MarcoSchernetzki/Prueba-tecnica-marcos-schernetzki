@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 export class SiteRepository {
     constructor(url = "") {
         this.urlBase = "https://interview.staging.atresplayer.com";
@@ -61,6 +63,11 @@ export class SiteRepository {
                 return response.json();
             })
             .catch((error) => {
+                Swal.fire(
+                    "Error",
+                    "No se ha podido eliminar correctamente",
+                    "error"
+                );
                 return `${error}`;
             });
     }

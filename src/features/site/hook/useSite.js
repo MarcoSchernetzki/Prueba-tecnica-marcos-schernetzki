@@ -19,7 +19,11 @@ export const useSite = () => {
             })
 
             .catch((error) => {
-                return Swal.fire("Error", error.message, "error");
+                return Swal.fire(
+                    "Error",
+                    "No se ha podido cargar la pagina",
+                    "error"
+                );
             });
     }, [apiSite, dispatcher]);
 
@@ -30,7 +34,7 @@ export const useSite = () => {
                 return dispatcher(ac.addActionSite(sites));
             })
             .catch((error) => {
-                return Swal.fire("Error", error.message, "error");
+                return Swal.fire("Error", "No se ha podido añadir", "error");
             });
     };
 
@@ -42,7 +46,7 @@ export const useSite = () => {
                 navigate("/detail");
             })
             .catch((error) => {
-                return Swal.fire("Error", error.message, "error");
+                return Swal.fire("Error", "Intente esto mas tarde", "error");
             });
     };
     const handleUpdate = (id, updateSite) => {
@@ -53,7 +57,7 @@ export const useSite = () => {
                 navigate("/");
             })
             .catch((error) => {
-                return Swal.fire("Error", error.message, "error");
+                return Swal.fire("Error", "No se ha podido editar", "error");
             });
     };
     const handleDelete = (id) => {
@@ -64,7 +68,7 @@ export const useSite = () => {
                 navigate("/home");
             })
             .catch((error) => {
-                return Swal.fire("Error", error.message, "error");
+                return Swal.fire("Error", "No se ha podido eliminar", "error");
             });
     };
 
