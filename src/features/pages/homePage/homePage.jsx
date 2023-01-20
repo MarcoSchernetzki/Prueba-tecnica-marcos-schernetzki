@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useSite } from "../../site/hook/useSite";
-import Swal from "sweetalert2";
 import Style from "./homePage.module.css";
 
 export function HomePage() {
