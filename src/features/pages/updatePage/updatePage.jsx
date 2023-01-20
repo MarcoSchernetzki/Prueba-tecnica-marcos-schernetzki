@@ -1,12 +1,11 @@
 import { UpdateForm } from "./updateForm/updateForm";
+import Style from "../createPage/create.module.css";
 
 export function UpdatePage() {
     return (
         <>
-            <main>
-                <h2>Edita tu sitio</h2>
-                <UpdateForm />
-            </main>
+            <h2 className={Style.form_tittle}>Edita tu sitio</h2>
+            <UpdateForm />
         </>
     );
 }

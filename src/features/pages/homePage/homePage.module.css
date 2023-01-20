@@ -1,0 +1,44 @@
+.container_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.list_card {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin: 0.5rem;
+    min-width: 8.5rem;
+    max-width: 8.5rem;
+    min-height: 11rem;
+    max-height: 11rem;
+    border: 1px rgb(255, 98, 98) solid;
+    box-shadow: 5px 5px 20px 5px;
+    border-radius: 15px;
+}
+
+.card_button {
+    width: 6rem;
+    height: 2rem;
+    color: white;
+    background: rgb(255, 98, 98);
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.list_card:hover {
+    background: rgb(255, 98, 98);
+    color: white;
+}
+
+.card_button:hover {
+    background: white;
+    color: rgb(255, 98, 98);
+}

@@ -1,0 +1,21 @@
+.container_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container_details_button {
+    display: flex;
+    gap: 3rem;
+    padding: 3rem;
+}
+.details_button {
+    width: 6rem;
+    height: 2rem;
+    color: white;
+    background:rgb(0, 0, 0);
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    gap: 1rem;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSite } from "../../../site/hook/useSite";
+import Style from "../create.module.css";
 
 export function CreateForm() {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ export function CreateForm() {
 
     return (
         <div>
-            <form onSubmit={handleAddSubmit}>
+            <form className={Style.container_form} onSubmit={handleAddSubmit}>
                 <label>
                     <input
                         type="text"
@@ -64,9 +65,12 @@ export function CreateForm() {
                     />
                 </label>
 
-                <label>
-                    <button type="submit">Guardar</button>
+                <label className={Style.container_form_button}>
+                    <button className={Style.form_button} type="submit">
+                        Guardar
+                    </button>
                     <button
+                        className={Style.form_button}
                         onClick={() => {
                             navigate("");
                         }}
