@@ -6,14 +6,13 @@ import Style from "../create.module.css";
 
 export function CreateForm() {
     const navigate = useNavigate();
-
     const { handleAdd } = useSite();
     const [addFormState, setAddFormState] = useState({
         name: "",
         description: "",
-        path: "visual 2",
+        path: "",
         publicPath: "",
-        key: "72373242672",
+        key: "",
     });
 
     const handleInput = (ev) => {
@@ -26,6 +25,7 @@ export function CreateForm() {
 
     const handleAddSubmit = (ev) => {
         ev.preventDefault();
+        addFormState.key = addFormState.name;
         handleAdd(addFormState);
         Swal.fire("Gracias!", "has creado un nuevo sitio", "success");
         navigate("/home");
