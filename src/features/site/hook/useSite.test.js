@@ -22,6 +22,7 @@ describe("Given useSite", () => {
     const wrapper = ({ children }) => (
         <Provider store={appStore}>{children}</Provider>
     );
+
     const { result } = renderHook(() => useSite(), { wrapper });
 
     describe("When it has been run handleAdd and it has called handleAdd", () => {
@@ -74,6 +75,18 @@ describe("Given useSite", () => {
                 .mockRejectedValue(mockSites.sites[0]);
             result.current.handleSelect("4");
             expect(SiteRepository.prototype.get).toHaveBeenCalled();
+        });
+    });
+    describe("When it has been run handleUpdate and it has called handleUpdate", () => {
+        test("Then should return a promise of site updated", async () => {
+            SiteRepository.prototype.put = jest
+                .fn()
+                .mockResolvedValue(mockSites.sites[0]);
+            result.current.handleUpdate(
+                mockSites.sites[0].id,
+                mockSites.sites[0]
+            );
+            expect(SiteRepository.prototype.put).toHaveBeenCalled();
         });
     });
     describe("When it has been run handleDelete and it has called handleDelete incorrectly", () => {

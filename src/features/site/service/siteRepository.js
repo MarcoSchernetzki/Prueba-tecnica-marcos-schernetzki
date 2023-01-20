@@ -41,6 +41,9 @@ export class SiteRepository {
         return fetch(`${this.urlBase}/site/${id}`, {
             method: "PUT",
             body: JSON.stringify(site),
+            headers: {
+                "content-Type": "application/json",
+            },
         })
             .then((response) => response.json())
             .catch((error) => {
@@ -50,6 +53,9 @@ export class SiteRepository {
     delete(id) {
         return fetch(`${this.urlBase}/site/${id}`, {
             method: "DELETE",
+            headers: {
+                "content-Type": "application/json",
+            },
         })
             .then((response) => {
                 return response.json();

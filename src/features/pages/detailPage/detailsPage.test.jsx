@@ -18,6 +18,8 @@ describe("Given detailPage component", () => {
             );
             const element = screen.getByText(/Detalle/i);
             expect(element).toBeInTheDocument();
+            userEvent.click(screen.getByText(/Editar/i));
+
             userEvent.click(screen.getByText(/Volver/i));
         });
         test("Then it should display loading", () => {

@@ -45,6 +45,17 @@ export const useSite = () => {
                 return Swal.fire("Error", error.message, "error");
             });
     };
+    const handleUpdate = (id, updateSite) => {
+        apiSite
+            .put(id, updateSite)
+            .then((site) => {
+                dispatcher(ac.updateActionSite(site));
+                navigate("/");
+            })
+            .catch((error) => {
+                return Swal.fire("Error", error.message, "error");
+            });
+    };
     const handleDelete = (id) => {
         apiSite
             .delete(id)
@@ -63,5 +74,6 @@ export const useSite = () => {
         handleAdd,
         handleSelect,
         handleDelete,
+        handleUpdate,
     };
 };
