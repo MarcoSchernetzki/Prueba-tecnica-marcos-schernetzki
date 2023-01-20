@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { useSite } from "../../../site/hook/useSite";
 import Style from "../../createPage/create.module.css";
 
@@ -25,6 +26,11 @@ export function UpdateForm() {
     const handleUpdateSubmit = (ev) => {
         ev.preventDefault();
         handleUpdate(sites.selectedSite?._id, updateFormState);
+        Swal.fire(
+            "Muy bien!",
+            "Los cambios se han aplicado correctamente",
+            "success"
+        );
     };
 
     return (
