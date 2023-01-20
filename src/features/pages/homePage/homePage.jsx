@@ -17,7 +17,7 @@ export function HomePage() {
                                 <li key={item._id} className={Style.list_card}>
                                     <p>{item.name}</p>
                                     <button
-                                        className={Style.car_button}
+                                        className={Style.card_button}
                                         onClick={() => {
                                             handleSelect(item);
                                         }}
