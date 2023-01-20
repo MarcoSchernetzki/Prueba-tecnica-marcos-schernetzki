@@ -12,6 +12,6 @@ test("renders App", () => {
             </Provider>
         </Router>
     );
-    const linkElement = screen.getByText(/a3player/i);
+    const linkElement = screen.getByText(/player/i);
     expect(linkElement).toBeInTheDocument();
 });

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSite } from "../../site/hook/useSite";
+import Style from "./homePage.module.css";
 
 export function HomePage() {
     const { sites, handleLoad, handleSelect, handleDelete } = useSite();
@@ -10,12 +11,13 @@ export function HomePage() {
         <>
             {sites.sites.length > 0 ? (
                 <div>
-                    <ul>
+                    <ul className={Style.container_list}>
                         {sites.sites?.map((item) => {
                             return (
-                                <li key={item._id}>
-                                    <p> Nombre: {item.name}</p>
+                                <li key={item._id} className={Style.list_card}>
+                                    <p>{item.name}</p>
                                     <button
+                                        className={Style.car_button}
                                         onClick={() => {
                                             handleSelect(item);
                                         }}
@@ -23,6 +25,7 @@ export function HomePage() {
                                         Detalles
                                     </button>
                                     <button
+                                        className={Style.car_button}
                                         onClick={() => {
                                             handleDelete(item._id);
                                         }}
