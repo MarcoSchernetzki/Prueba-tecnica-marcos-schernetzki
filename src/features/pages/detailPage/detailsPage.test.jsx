@@ -30,7 +30,7 @@ describe("Given detailPage component", () => {
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(/Loading/i);
+            const element = screen.getByPlaceholderText(/loading/i);
             expect(element).toBeInTheDocument();
         });
     });

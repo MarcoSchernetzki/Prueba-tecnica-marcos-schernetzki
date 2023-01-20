@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSite } from "../../site/hook/useSite";
 import Style from "./detailsPage.module.css";
+import Styles from "../homePage/homePage.module.css";
 
 export function DetailsPage() {
     const navigate = useNavigate();
@@ -35,7 +36,12 @@ export function DetailsPage() {
                     </div>
                 </div>
             ) : (
-                <p>Loading...</p>
+                <div placeholder="loading" className={Styles.lds_ring}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             )}
         </>
     );

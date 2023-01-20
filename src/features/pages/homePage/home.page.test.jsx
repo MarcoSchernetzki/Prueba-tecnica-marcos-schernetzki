@@ -16,7 +16,7 @@ describe("Given home.page component", () => {
                     </Provider>
                 </Router>
             );
-            const element = screen.getByText(/Loading/i);
+            const element = screen.getByPlaceholderText(/loading/i);
             expect(element).toBeInTheDocument();
         });
         test("Then it should display", () => {
